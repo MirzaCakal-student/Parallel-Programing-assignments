@@ -326,7 +326,11 @@ N,V,Time(ms)
 10000000, 8, 619.175
 10000000, 16, 581.876
 10000000, 32, 645.352
+
 10000000, 64, 602.527
 10000000, 128, 621.238
 10000000, 256, 620.746
 mirza@Mirza:~/ParallelComputing$
+
+
+HERE IS LINK FOR GOOGLE SHEETS https://docs.google.com/spreadsheets/d/1bXN1SGRbkPXUenqW2v3J6sdNIua3F9Tt926fRKZ-0qs/edit?usp=sharing
