@@ -1,5 +1,21 @@
 # ParallelComputing
 
+This assignment focuses on understanding the Global Sum problem, a fundamental issue in parralel computing caused by the. In simple terms, the order in which numbers are added can change the final result when using limited precision floating-point types (like `float` or `double`). In large-scale or parallel computations, partial sums are combined in different orders across multiple processors. Because floating-point addition is not mathematically associative, this can lead to rounding errors, oss of precision.  
+
+Standard Double - Default `double` precision sum. Fastest but least accurate.
+Long Double - Uses `long double` accumulator. Improves precision with minimal slowdown.
+Pairwise Summation - Recursive pair-by-pair sum. Reduces rounding by balancing additions.
+Kahan Summation - Compensated summation algorithm. Adds correction term to reduce floating-point loss.
+Knuth Summation - Improved Kahan variant.  Even better compensation of rounding error 
+
+All algorithms were implemented in sum_algorithms.c from repository and tested through main.c. Everything that is changed in those files are commented.
+
+In Makefile I added -lm, because for some reason test do not work.
+$(CC) $(OBJECTS) -lm -o $(TARGET)
+
+
+Here is all terminal code.
+
 mirza@Mirza:~$ cd ~/ParallelComputing
 mirza@Mirza:~/ParallelComputing$ make
 Linking sum_test...
@@ -233,5 +249,5 @@ Knuth sum        -> sum: 6710886.406710886 diff: 0            rel_diff: 0       
 All tests complete!
 ========================================
 
-
+At the end I make csv file with all records of tests, and implement that file in google sheets and from that data I made table.
 https://docs.google.com/spreadsheets/d/1Ln0fV2s7ZpaeZ0A3MtLAvg2Hj7G4u23_IsxO6y6ruiM/edit?usp=sharing
