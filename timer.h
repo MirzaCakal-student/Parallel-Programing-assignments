@@ -1,7 +1,3 @@
-//
-// Created by hajro on 4. 11. 2025..
-//
-
 #ifndef PARALLELCOMPUTING_TIMER_H
 #define PARALLELCOMPUTING_TIMER_H
 #include <time.h>

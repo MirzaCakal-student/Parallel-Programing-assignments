@@ -1,22 +1,8 @@
 #ifndef PARALLELCOMPUTING_TIMESTEP_H
 #define PARALLELCOMPUTING_TIMESTEP_H
-
 #define REAL_CELL 1
 
-double timestep(int ncells, double g, double sigma,
-                int* restrict celltype,
-                double *H, double *U, double *V, double *dx, double *dy);
-
-double timestep_opt1(int ncells, double g, double sigma,
-                     int* restrict celltype,
-                     double *H, double *U, double *V, double *dx, double *dy);
-
-double timestep_opt2(int ncells, double g, double sigma,
-                     int* restrict celltype,
-                     double *H, double *U, double *V, double *dx, double *dy);
-
-double timestep_opt3(int ncells, double g, double sigma,
-                     int* restrict celltype,
-                     double *H, double *U, double *V, double *dx, double *dy);
-
+double timestep(int ncells, double g, double sigma, int* restrict celltype,
+                double* restrict H, double* restrict U, double* restrict V,
+                double* restrict dx, double* restrict dy);
 #endif
