@@ -111,13 +111,12 @@ Iter 7000
 Iter 8000
 Iter 9000
 Timing is init 0.014069 flush 46.164147 stencil 36.067257 total 82.830693
-mirza@Mirza:~/Parallel-Programing-assignments/Example_06$
+mirza@Mirza:~/Parallel-Programing-assignments/Example_06
 
 
 Here is final results
 Stencil Performance Comparison 
 -------------------------------------------
-Number of threads used: 4
 1) Baseline version – stencil_opt2
 -----------------------------------
 init time:    0.017124 sec
@@ -132,15 +131,14 @@ flush time:  45.759116 sec
 stencil time: 35.840739 sec
 TOTAL:       81.617311 sec
 Speedup over baseline: ~6.57% faster
-
+------------------------------------
 3) Highly optimized version – stencil_opt6
--------------------------------------------
-init time:    0.014069 sec
-flush time:  46.164147 sec
-stencil time: 36.067257 sec
-TOTAL:       82.830693 sec
+init time: 0.014069 sec 
+flush time: 46.164147 
+sec stencil time: 36.067257 sec 
+TOTAL: 82.830693 sec 
 Speedup over baseline: ~5.18% faster
--------------------------------------------
+
 Summary
 • stencil_opt2 is the slowest (baseline). This is the least optimized version. Multiple parallel regions, which increases thread creation overhead. Implicit barriers at the end of each parallel loop force threads to wait.
 
