@@ -1,0 +1,35 @@
+Here is final results
+Stencil Performance Comparison 
+-------------------------------------------
+1) Baseline version – stencil_opt2
+-----------------------------------
+init time:    0.017124 sec
+flush time:  49.114242 sec
+stencil time: 38.226055 sec
+TOTAL:       87.360458 sec
+
+2) Optimized version – stencil_opt4
+------------------------------------
+init time:    0.013963 sec
+flush time:  45.759116 sec
+stencil time: 35.840739 sec
+TOTAL:       81.617311 sec
+Speedup over baseline: ~6.57% faster
+------------------------------------
+3) Highly optimized version – stencil_opt6
+init time: 0.014069 sec 
+flush time: 46.164147 
+sec stencil time: 36.067257 sec 
+TOTAL: 82.830693 sec 
+Speedup over baseline: ~5.18% faster
+
+Summary
+• stencil_opt2 is the slowest (baseline). This is the least optimized version. Multiple parallel regions, which increases thread creation overhead. Implicit barriers at the end of each parallel loop force threads to wait.
+
+• stencil_opt4 is the fastest overall with the best total time.This implementation is noticeably improved over the baseline. initialization loop is parallelized, improving memory placement and NUMA locality. Reduced number of synchronization points, fewer implicit barriers. Slight loop restructuring improves cache behavior. Utility arrays better distributed across threads.
+
+• stencil_opt6 is very close to opt4 but slightly slower because:
+   - different barrier usage
+   - different memory or loop behavior
+
+• All versions ran using 4 threads
