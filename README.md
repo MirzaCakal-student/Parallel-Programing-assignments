@@ -80,6 +80,22 @@ Explanation
 The lab server contains an NVIDIA GPU and the NVHPC / PGI OpenACC compiler.
 This machine supports full OpenACC GPU acceleration.
 
+StreamTriad_kern1
+2.236922 sec
+Reason:
+kern1 performs the STREAM Triad operation with no optimized data regions, meaning:
+Data is copied to the GPU every iteration
+Data is copied back from the GPU every iteration
+The kernel is extremely small compared to the cost of memory transfer. tis results in the GPU spending almost all its time on data movement, not computation.
+
+StreamTriad_par4
+0.00119 sec
+Reason:
+These versions use fully optimized OpenACC GPU regions, typically combining:
+Persistent data regions (acc data copyin/copyout)
+Efficient memory access patterns, parallel loop or kernels constructs allowing full GPU parallelization
+Minimal data transfers: data is moved to the GPU once, computed in parallel, and returned once
+
 
 Portability Summary 
 CUDA -	Low	NVIDIA-only; fails without proper runtime and drivers
